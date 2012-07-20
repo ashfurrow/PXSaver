@@ -9,13 +9,16 @@
 #import "PXSaverView.h"
 #import <QuartzCore/QuartzCore.h>
 
-#define secondsPerAnimation 5
-#define secondsPerCrossfade 2
+#define secondsPerAnimation 4
+#define secondsPerCrossfade 1
 
 @implementation PXSaverView
 {
     NSImage *image;
     NSImageView *imageView;
+    
+    NSImage *otherImage;
+    NSImageView *otherImageView;
     
     NSBezierPath *path;
 }
@@ -24,8 +27,7 @@
 {
     self = [super initWithFrame:frame isPreview:isPreview];
     if (self) {
-//        [self setAnimationTimeInterval:1/30.0];
-        [self setAnimationTimeInterval:secondsPerAnimation + secondsPerCrossfade];
+        [self setAnimationTimeInterval:secondsPerAnimation];
         
         image = [[NSImage alloc] initWithContentsOfFile:
                           [[NSBundle bundleForClass: [self class]]
@@ -38,10 +40,23 @@
         imageView.imageScaling = NSImageScaleProportionallyUpOrDown;
         imageView.alphaValue = 0.0f;
         
-//        CGFloat scaleFactor = 1.0f;//SSRandomFloatBetween(1.2, 1.3);
-//        imageView.layer.affineTransform = CGAffineTransformMakeScale(scaleFactor, scaleFactor);
         [imageView setImage:image];
         [self addSubview:imageView];
+        
+        
+        otherImage = [[NSImage alloc] initWithContentsOfFile:
+                 [[NSBundle bundleForClass: [self class]]
+                  pathForResource: @"stars"
+                  ofType: @"jpg"]];
+        
+        
+        otherImageView = [[NSImageView alloc] initWithFrame:self.bounds];
+        otherImageView.wantsLayer = YES;
+        otherImageView.imageScaling = NSImageScaleProportionallyUpOrDown;
+        otherImageView.alphaValue = 0.0f;
+        
+        [otherImageView setImage:otherImage];
+        [self addSubview:otherImageView];
     }
     return self;
 }
@@ -66,35 +81,41 @@
 
 - (void)animateOneFrame
 {
-    [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
-        [context setDuration:secondsPerCrossfade/2];
-        imageView.layer.opacity = 1.0f;
-    } completionHandler:^{
-        
-    }];
-    
+    //crossfade in
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
         [context setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
-        [context setDuration:secondsPerAnimation];
-        CGFloat widthTranslationMax = self.bounds.size.width/10;
-        CGFloat heightTranslationMax = self.bounds.size.height/10;
-        CGAffineTransform transform = CGAffineTransformMakeTranslation(SSRandomFloatBetween(-widthTranslationMax, widthTranslationMax), SSRandomFloatBetween(-heightTranslationMax, heightTranslationMax));;
-        CGFloat scaleFactor = SSRandomFloatBetween(1.3, 1.35);
-        transform = CGAffineTransformScale(transform, scaleFactor, scaleFactor);
-        imageView.layer.affineTransform = transform;
-    } completionHandler:^{
-    }];
+        [context setDuration:secondsPerCrossfade];
+        imageView.layer.opacity = 1.0f;
+        otherImageView.layer.opacity = 0.0f;
+    } completionHandler:nil];
     
-    double delayInSeconds = secondsPerAnimation - secondsPerCrossfade/2;
+//    [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
+//        [context setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
+//        [context setDuration:secondsPerAnimation];
+//        CGFloat widthTranslationMax = self.bounds.size.width/10;
+//        CGFloat heightTranslationMax = self.bounds.size.height/10;
+//        CGAffineTransform transform = CGAffineTransformMakeTranslation(SSRandomFloatBetween(-widthTranslationMax, widthTranslationMax), SSRandomFloatBetween(-heightTranslationMax, heightTranslationMax));;
+//        CGFloat scaleFactor = SSRandomFloatBetween(1.3, 1.35);
+//        transform = CGAffineTransformScale(transform, scaleFactor, scaleFactor);
+//        imageView.layer.affineTransform = transform;
+//    } completionHandler:nil];
+    
+    //crossfade out
+    double delayInSeconds = secondsPerAnimation - secondsPerCrossfade;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
         [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
-            [context setDuration:secondsPerCrossfade/2];
+            [context setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
+            [context setDuration:secondsPerCrossfade];
             imageView.layer.opacity = 0.0f;
-        } completionHandler:^{
-            
-        }];
+            otherImageView.layer.opacity = 1.0f;
+        } completionHandler:nil];
     });
+    
+    id temp = otherImageView;
+    otherImageView = imageView;
+    imageView = temp;
     
 //    [image drawInRect:self.bounds fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0f];
 }

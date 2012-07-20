@@ -14,6 +14,7 @@
 		5E01D18F15B9A1F000866442 /* fog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5E01D18E15B9A1F000866442 /* fog.jpg */; };
 		5E01D19115B9A39000866442 /* PXSaver.saver in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5E01D16E15B99E4D00866442 /* PXSaver.saver */; };
 		5EA84DF615B9ADB500B9A216 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA84DF515B9ADB500B9A216 /* QuartzCore.framework */; };
+		5EA84DF915B9B21800B9A216 /* stars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5EA84DF815B9B21800B9A216 /* stars.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +44,7 @@
 		5E01D18115B99E4D00866442 /* PXSaverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PXSaverView.m; sourceTree = "<group>"; };
 		5E01D18E15B9A1F000866442 /* fog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fog.jpg; sourceTree = "<group>"; };
 		5EA84DF515B9ADB500B9A216 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5EA84DF815B9B21800B9A216 /* stars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stars.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 		5E01D17915B99E4D00866442 /* PXSaver */ = {
 			isa = PBXGroup;
 			children = (
+				5EA84DF815B9B21800B9A216 /* stars.jpg */,
 				5E01D18E15B9A1F000866442 /* fog.jpg */,
 				5E01D18015B99E4D00866442 /* PXSaverView.h */,
 				5E01D18115B99E4D00866442 /* PXSaverView.m */,
@@ -184,6 +187,7 @@
 			files = (
 				5E01D17E15B99E4D00866442 /* InfoPlist.strings in Resources */,
 				5E01D18F15B9A1F000866442 /* fog.jpg in Resources */,
+				5EA84DF915B9B21800B9A216 /* stars.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
