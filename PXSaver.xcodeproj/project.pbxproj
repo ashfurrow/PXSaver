@@ -11,7 +11,23 @@
 		5E01D17415B99E4D00866442 /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E01D17315B99E4D00866442 /* ScreenSaver.framework */; };
 		5E01D17E15B99E4D00866442 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E01D17C15B99E4D00866442 /* InfoPlist.strings */; };
 		5E01D18215B99E4D00866442 /* PXSaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E01D18115B99E4D00866442 /* PXSaverView.m */; };
+		5E01D18F15B9A1F000866442 /* fog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5E01D18E15B9A1F000866442 /* fog.jpg */; };
+		5E01D19115B9A39000866442 /* PXSaver.saver in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5E01D16E15B99E4D00866442 /* PXSaver.saver */; };
+		5EA84DF615B9ADB500B9A216 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA84DF515B9ADB500B9A216 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5E01D19015B9A38500866442 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "/Users/ash/Library/Screen Savers/";
+			dstSubfolderSpec = 0;
+			files = (
+				5E01D19115B9A39000866442 /* PXSaver.saver in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5E01D16E15B99E4D00866442 /* PXSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PXSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -20,11 +36,13 @@
 		5E01D17615B99E4D00866442 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		5E01D17715B99E4D00866442 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5E01D17815B99E4D00866442 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		5E01D17B15B99E4D00866442 /* PXSaver-Info.plist */ = {isa = PBXFileReference; path = "PXSaver-Info.plist"; sourceTree = "<group>"; };
+		5E01D17B15B99E4D00866442 /* PXSaver-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PXSaver-Info.plist"; sourceTree = "<group>"; };
 		5E01D17D15B99E4D00866442 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5E01D17F15B99E4D00866442 /* PXSaver-Prefix.pch */ = {isa = PBXFileReference; path = "PXSaver-Prefix.pch"; sourceTree = "<group>"; };
-		5E01D18015B99E4D00866442 /* PXSaverView.h */ = {isa = PBXFileReference; path = PXSaverView.h; sourceTree = "<group>"; };
+		5E01D17F15B99E4D00866442 /* PXSaver-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PXSaver-Prefix.pch"; sourceTree = "<group>"; };
+		5E01D18015B99E4D00866442 /* PXSaverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PXSaverView.h; sourceTree = "<group>"; };
 		5E01D18115B99E4D00866442 /* PXSaverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PXSaverView.m; sourceTree = "<group>"; };
+		5E01D18E15B9A1F000866442 /* fog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fog.jpg; sourceTree = "<group>"; };
+		5EA84DF515B9ADB500B9A216 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EA84DF615B9ADB500B9A216 /* QuartzCore.framework in Frameworks */,
 				5E01D17215B99E4D00866442 /* Cocoa.framework in Frameworks */,
 				5E01D17415B99E4D00866442 /* ScreenSaver.framework in Frameworks */,
 			);
@@ -60,6 +79,7 @@
 		5E01D17015B99E4D00866442 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5EA84DF515B9ADB500B9A216 /* QuartzCore.framework */,
 				5E01D17115B99E4D00866442 /* Cocoa.framework */,
 				5E01D17315B99E4D00866442 /* ScreenSaver.framework */,
 				5E01D17515B99E4D00866442 /* Other Frameworks */,
@@ -80,6 +100,7 @@
 		5E01D17915B99E4D00866442 /* PXSaver */ = {
 			isa = PBXGroup;
 			children = (
+				5E01D18E15B9A1F000866442 /* fog.jpg */,
 				5E01D18015B99E4D00866442 /* PXSaverView.h */,
 				5E01D18115B99E4D00866442 /* PXSaverView.m */,
 				5E01D17A15B99E4D00866442 /* Supporting Files */,
@@ -119,6 +140,7 @@
 				5E01D16A15B99E4D00866442 /* Headers */,
 				5E01D16B15B99E4D00866442 /* Resources */,
 				5E01D16C15B99E4D00866442 /* Rez */,
+				5E01D19015B9A38500866442 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -161,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E01D17E15B99E4D00866442 /* InfoPlist.strings in Resources */,
+				5E01D18F15B9A1F000866442 /* fog.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +312,7 @@
 				5E01D18715B99E4D00866442 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
