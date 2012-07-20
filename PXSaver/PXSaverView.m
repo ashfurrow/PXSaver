@@ -21,6 +21,8 @@
     NSImageView *otherImageView;
     
     NSBezierPath *path;
+    
+    NSMutableArray *imageQueue;
 }
 
 - (id)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview
@@ -40,6 +42,8 @@
         imageView.imageScaling = NSImageScaleProportionallyUpOrDown;
         imageView.alphaValue = 0.0f;
         
+        imageView.layer.shouldRasterize = YES;
+        
         [imageView setImage:image];
         [self addSubview:imageView];
         
@@ -55,8 +59,12 @@
         otherImageView.imageScaling = NSImageScaleProportionallyUpOrDown;
         otherImageView.alphaValue = 0.0f;
         
+        otherImageView.layer.shouldRasterize = YES;
+        
         [otherImageView setImage:otherImage];
         [self addSubview:otherImageView];
+        
+        imageQueue = [NSMutableArray arrayWithCapacity:10];
     }
     return self;
 }
@@ -64,6 +72,51 @@
 - (void)startAnimation
 {
     [super startAnimation];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.500px.com/v1/photos?consumer_key=%@&feature=editors&rpp=10&image_size=5", @"zEJa8SeeKpcrqQQfHGzDiKuuHRQssAS09ppVl7Kb"]]];
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        
+        NSArray *photos = [dictionary valueForKey:@"photos"];
+        
+        for (NSDictionary *photo in photos)
+        {
+            NSString *urlString = [photo valueForKey:@"image_url"];
+            
+            NSImage *downloadedImage = [[NSImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [imageQueue addObject:downloadedImage];
+            });
+        }
+    }];
+    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+//        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.500px.com/v1/photos?consumer_key=%@&feature=editors&rpp=10", @"zEJa8SeeKpcrqQQfHGzDiKuuHRQssAS09ppVl7Kb"]]];
+//        
+//        NSError *error;
+//        NSHTTPURLResponse *response;
+//        
+//        NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+//        
+//        if (error)
+//        {
+//            NSLog(@"Oops: %@", error);
+//            return;
+//        }
+//        
+//        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+//        
+//        if (error || !dictionary)
+//        {
+//            NSLog(@"Couldn't parse JSON:%@", error);
+//            return;
+//        }
+//        
+//        NSLog(@"%@", dictionary);
+//    });
 }
 
 - (void)stopAnimation
@@ -81,37 +134,36 @@
 
 - (void)animateOneFrame
 {
-    //crossfade in
+    CGFloat widthTranslationMax = self.bounds.size.width/10;
+    CGFloat heightTranslationMax = self.bounds.size.height/10;
+    
+    //crossfade 
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
         [context setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
         [context setDuration:secondsPerCrossfade];
         imageView.layer.opacity = 1.0f;
         otherImageView.layer.opacity = 0.0f;
-    } completionHandler:nil];
+    } completionHandler:^{
+        if (imageQueue.count > 0)
+        {
+            NSImage *object = [imageQueue objectAtIndex:0];
+            imageView.image = object;
+            
+            [imageQueue removeObjectAtIndex:0];
+            [imageQueue addObject:object];
+        }
+    }];
     
-//    [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
-//        [context setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
-//        [context setDuration:secondsPerAnimation];
-//        CGFloat widthTranslationMax = self.bounds.size.width/10;
-//        CGFloat heightTranslationMax = self.bounds.size.height/10;
-//        CGAffineTransform transform = CGAffineTransformMakeTranslation(SSRandomFloatBetween(-widthTranslationMax, widthTranslationMax), SSRandomFloatBetween(-heightTranslationMax, heightTranslationMax));;
-//        CGFloat scaleFactor = SSRandomFloatBetween(1.3, 1.35);
-//        transform = CGAffineTransformScale(transform, scaleFactor, scaleFactor);
-//        imageView.layer.affineTransform = transform;
-//    } completionHandler:nil];
-    
-    //crossfade out
-    double delayInSeconds = secondsPerAnimation - secondsPerCrossfade;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
+        [context setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
+        [context setDuration:secondsPerAnimation + secondsPerCrossfade];
+        CGAffineTransform transform = CGAffineTransformMakeTranslation(SSRandomFloatBetween(-widthTranslationMax, widthTranslationMax), SSRandomFloatBetween(-heightTranslationMax, heightTranslationMax));;
+        CGFloat scaleFactor = SSRandomFloatBetween(1.4, 1.5);
+        transform = CGAffineTransformScale(transform, scaleFactor, scaleFactor);
+        imageView.layer.affineTransform = transform;
+    } completionHandler:^{
         
-        [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
-            [context setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
-            [context setDuration:secondsPerCrossfade];
-            imageView.layer.opacity = 0.0f;
-            otherImageView.layer.opacity = 1.0f;
-        } completionHandler:nil];
-    });
+    }];
     
     id temp = otherImageView;
     otherImageView = imageView;
