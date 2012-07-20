@@ -5,7 +5,7 @@ This project uses two default images. The first is [Towering Fog](http://500px.c
 There are a few issues right now.
 
 1. The project requires your user to be shortnamed "ash" to build.
-2. The project abuses who screensavers are supposed to be written on OS X. 
+2. The project abuses how screensavers are supposed to be written on OS X. 
 3. The effect used isn't really the "Ken Burns" effect, as it displays edges of photos. This needs to be addressed.
 4. Sometimes the animation stutters (see point 2).
 
