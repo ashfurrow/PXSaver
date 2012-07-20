@@ -1,0 +1,296 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5E01D17215B99E4D00866442 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E01D17115B99E4D00866442 /* Cocoa.framework */; };
+		5E01D17415B99E4D00866442 /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E01D17315B99E4D00866442 /* ScreenSaver.framework */; };
+		5E01D17E15B99E4D00866442 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E01D17C15B99E4D00866442 /* InfoPlist.strings */; };
+		5E01D18215B99E4D00866442 /* PXSaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E01D18115B99E4D00866442 /* PXSaverView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5E01D16E15B99E4D00866442 /* PXSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PXSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E01D17115B99E4D00866442 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		5E01D17315B99E4D00866442 /* ScreenSaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScreenSaver.framework; path = System/Library/Frameworks/ScreenSaver.framework; sourceTree = SDKROOT; };
+		5E01D17615B99E4D00866442 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		5E01D17715B99E4D00866442 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5E01D17815B99E4D00866442 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5E01D17B15B99E4D00866442 /* PXSaver-Info.plist */ = {isa = PBXFileReference; path = "PXSaver-Info.plist"; sourceTree = "<group>"; };
+		5E01D17D15B99E4D00866442 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5E01D17F15B99E4D00866442 /* PXSaver-Prefix.pch */ = {isa = PBXFileReference; path = "PXSaver-Prefix.pch"; sourceTree = "<group>"; };
+		5E01D18015B99E4D00866442 /* PXSaverView.h */ = {isa = PBXFileReference; path = PXSaverView.h; sourceTree = "<group>"; };
+		5E01D18115B99E4D00866442 /* PXSaverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PXSaverView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5E01D16915B99E4D00866442 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E01D17215B99E4D00866442 /* Cocoa.framework in Frameworks */,
+				5E01D17415B99E4D00866442 /* ScreenSaver.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5E01D16115B99E4D00866442 = {
+			isa = PBXGroup;
+			children = (
+				5E01D17915B99E4D00866442 /* PXSaver */,
+				5E01D17015B99E4D00866442 /* Frameworks */,
+				5E01D16F15B99E4D00866442 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5E01D16F15B99E4D00866442 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5E01D16E15B99E4D00866442 /* PXSaver.saver */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5E01D17015B99E4D00866442 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E01D17115B99E4D00866442 /* Cocoa.framework */,
+				5E01D17315B99E4D00866442 /* ScreenSaver.framework */,
+				5E01D17515B99E4D00866442 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5E01D17515B99E4D00866442 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E01D17615B99E4D00866442 /* AppKit.framework */,
+				5E01D17715B99E4D00866442 /* CoreData.framework */,
+				5E01D17815B99E4D00866442 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		5E01D17915B99E4D00866442 /* PXSaver */ = {
+			isa = PBXGroup;
+			children = (
+				5E01D18015B99E4D00866442 /* PXSaverView.h */,
+				5E01D18115B99E4D00866442 /* PXSaverView.m */,
+				5E01D17A15B99E4D00866442 /* Supporting Files */,
+			);
+			path = PXSaver;
+			sourceTree = "<group>";
+		};
+		5E01D17A15B99E4D00866442 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5E01D17B15B99E4D00866442 /* PXSaver-Info.plist */,
+				5E01D17C15B99E4D00866442 /* InfoPlist.strings */,
+				5E01D17F15B99E4D00866442 /* PXSaver-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5E01D16A15B99E4D00866442 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5E01D16D15B99E4D00866442 /* PXSaver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E01D18515B99E4D00866442 /* Build configuration list for PBXNativeTarget "PXSaver" */;
+			buildPhases = (
+				5E01D16815B99E4D00866442 /* Sources */,
+				5E01D16915B99E4D00866442 /* Frameworks */,
+				5E01D16A15B99E4D00866442 /* Headers */,
+				5E01D16B15B99E4D00866442 /* Resources */,
+				5E01D16C15B99E4D00866442 /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PXSaver;
+			productName = PXSaver;
+			productReference = 5E01D16E15B99E4D00866442 /* PXSaver.saver */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5E01D16315B99E4D00866442 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = 500px;
+			};
+			buildConfigurationList = 5E01D16615B99E4D00866442 /* Build configuration list for PBXProject "PXSaver" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5E01D16115B99E4D00866442;
+			productRefGroup = 5E01D16F15B99E4D00866442 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5E01D16D15B99E4D00866442 /* PXSaver */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5E01D16B15B99E4D00866442 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E01D17E15B99E4D00866442 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		5E01D16C15B99E4D00866442 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5E01D16815B99E4D00866442 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E01D18215B99E4D00866442 /* PXSaverView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5E01D17C15B99E4D00866442 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5E01D17D15B99E4D00866442 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5E01D18315B99E4D00866442 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5E01D18415B99E4D00866442 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		5E01D18615B99E4D00866442 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PXSaver/PXSaver-Prefix.pch";
+				INFOPLIST_FILE = "PXSaver/PXSaver-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = saver;
+			};
+			name = Debug;
+		};
+		5E01D18715B99E4D00866442 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PXSaver/PXSaver-Prefix.pch";
+				INFOPLIST_FILE = "PXSaver/PXSaver-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = saver;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5E01D16615B99E4D00866442 /* Build configuration list for PBXProject "PXSaver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E01D18315B99E4D00866442 /* Debug */,
+				5E01D18415B99E4D00866442 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E01D18515B99E4D00866442 /* Build configuration list for PBXNativeTarget "PXSaver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E01D18615B99E4D00866442 /* Debug */,
+				5E01D18715B99E4D00866442 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5E01D16315B99E4D00866442 /* Project object */;
+}
