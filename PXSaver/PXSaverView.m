@@ -92,31 +92,6 @@
             });
         }
     }];
-    
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-//        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.500px.com/v1/photos?consumer_key=%@&feature=editors&rpp=10", @"zEJa8SeeKpcrqQQfHGzDiKuuHRQssAS09ppVl7Kb"]]];
-//        
-//        NSError *error;
-//        NSHTTPURLResponse *response;
-//        
-//        NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-//        
-//        if (error)
-//        {
-//            NSLog(@"Oops: %@", error);
-//            return;
-//        }
-//        
-//        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-//        
-//        if (error || !dictionary)
-//        {
-//            NSLog(@"Couldn't parse JSON:%@", error);
-//            return;
-//        }
-//        
-//        NSLog(@"%@", dictionary);
-//    });
 }
 
 - (void)stopAnimation
@@ -127,9 +102,6 @@
 - (void)drawRect:(NSRect)rect
 {
     [super drawRect:rect];
-//    NSLog(@"%f, %f", self.bounds.size.width, self.bounds.size.height);
-        
-//    [image drawInRect:self.bounds fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0f];
 }
 
 - (void)animateOneFrame
@@ -168,8 +140,6 @@
     id temp = otherImageView;
     otherImageView = imageView;
     imageView = temp;
-    
-//    [image drawInRect:self.bounds fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0f];
 }
 
 - (BOOL)hasConfigureSheet
